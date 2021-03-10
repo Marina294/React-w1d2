@@ -23,7 +23,7 @@ class StatePractice extends Component {
 
     handleFocus= () => {
         this.setState({
-            placeholder: 'enter text'
+            message: 'You agree to the site terms'
         })
     }
 
@@ -39,20 +39,21 @@ class StatePractice extends Component {
         })
     }
 
-    // handleImage(){
-    //     this.setState({
-
-    //     })
-    // }
+    handleImage(e){
+        const imgWidth = e.target.width
+        if(imgWidth > 100){
+          console.log("Your image is big!")
+        }
+    }
 
     render() {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
                 <input type="text" placeholder={this.state.placeholder} onFocus={this.handleFocus} onChange={this.handleChange} />
-                <button className="btn" type="submit" >{this.state.btnText}</button>
+                {/* <button className="btn" type="submit" >{this.state.btnText}</button> */}
                 <h3 onMouseEnter={this.handleEnter}>{this.state.message}</h3>
-                <img src="https://picsum.photos/id/1/200/300" onLoad={this.handleImage}/>
+                <img src="https://picsum.photos/200" onLoad={this.handleImage}/>
                 </form>
             </div>
         );
